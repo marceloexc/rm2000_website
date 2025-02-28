@@ -1,14 +1,31 @@
 ---
-import background from '../assets/rm2000_logo.png';
+import {Image} from "astro:assets"
+import Logo from '../components/Logo.astro';
+import Gradient from '../components/Gradient.astro';
+import screenshot from '../assets/main_window.png'
+import HeroImage from "./HeroImage.astro";
 ---
 
-<div class="container">
-	<img src={background.src} alt="Logo" fetchpriority="high" />
-	<h1>coming soon</h1>
+<div class="background">
+	<Logo />
+	<Gradient>
+		<HeroImage />
+
+		<div class="text-section">
+			<h1>
+				RM2000<span>
+					Tape Recorder
+				</span>
+			</h1>
+
+			<p>
+				Easy macOS audio sampling
+			</p>
+		</div>
+	</Gradient>
 </div>
 
 <style>
-
 	@font-face {
 		font-family: "TheNeue-Black";
 		src: url("/fonts/TheNeue-Black.woff2");
@@ -25,27 +42,44 @@ import background from '../assets/rm2000_logo.png';
 		font-display: swap;
 	}
 
-	.container {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		height: 100vh;
-		background-color: #EF721D;
-		font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
+	@font-face {
+		font-family: "AUTHENTICSans-90";
+		src: url("/fonts/AUTHENTICSans-90.woff2");
+
 	}
 
-	img {
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
+	body, html {
 		width: 100%;
-		max-width: 1000px;
-		min-width: 300px;
-		margin-bottom: 2rem;
-		object-fit: contain;
+		height: 100%;
+		background: #00020e;
 	}
 
-	h1 {
-		color: #3A2F2E;
-		font-size: 3rem;
-		font-family: 'Eurostile Next LT Pro',monospace;
+	.background {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		position: relative;
+
+	}
+
+
+	.text-section {
+		* {
+			font-family: "AUTHENTICSans-90",serif;
+			color: #bab6b0;
+		}
+		padding: 3em;
+
+		span {
+			font-size: 60%;
+		}
 	}
 </style>

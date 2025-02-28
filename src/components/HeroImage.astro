@@ -1,0 +1,16 @@
+---
+import screenshot from '../assets/main_window.png'
+import {Image} from "astro:assets";
+---
+<Image class="small-image" src={screenshot} alt="RM2000 screenshot"/>
+
+
+<style>
+    .small-image {
+        max-width: 100%; /* Ensures it doesn't exceed its container */
+        width: 300px; /* Adjust to preferred size */
+        height: auto; /* Maintains aspect ratio */
+        filter: drop-shadow(2px 29px 21px #40494f);
+    }
+
+</style>

@@ -1,0 +1,19 @@
+---
+import gradient from '../assets/gradient.webp';
+---
+
+<div class="gradient">
+    <slot />
+</div>
+
+<style>
+    .gradient {
+        position: absolute;
+        width: 1500px; /* Adjust as needed */
+        height: 700px; /* Adjust as needed */
+        background: radial-gradient(farthest-corner at 50% 80%, #c1c6c4, #959d9f, #6c757a, #454e56, #212732, #00010f 55%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
