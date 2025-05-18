@@ -1,11 +1,12 @@
 ---
 import {Image} from "astro:assets";
 import Header from "../components/Header.astro";
-import HeroSection from '../components/Gradient.astro';
+import HeroSection from './HeroSection.astro';
 import screenshot from '../assets/main_window.png';
 import HeroImage from "./HeroImage.astro";
 import Footer from "../components/Footer.astro"
 import LCDBlowup from "../components/LCD_Blowup.astro"
+import grain from "../assets/nnnoise4.svg";
 ---
 
 <!-- <Header /> -->
@@ -21,25 +22,13 @@ import LCDBlowup from "../components/LCD_Blowup.astro"
 	
 <style>
 	@font-face {
-		font-family: "TheNeue-Black";
-		src: url("/fonts/TheNeue-Black.woff2");
-		font-weight: normal;
-		font-style: normal;
-		font-display: swap;
+		font-family: "Lucida Grande";
+		src: url("/fonts/lucidagrande_bold.ttf");
 	}
 
 	@font-face {
-		font-family: "Eurostile Next LT Pro";
-		src: url("/fonts/EurostileNextLTPro-SemiBoldExtended.otf");
-		font-weight: normal;
-		font-style: normal;
-		font-display: swap;
-	}
-
-	@font-face {
-		font-family: "AUTHENTICSans-90";
-		src: url("/fonts/AUTHENTICSans-90.woff2");
-
+		font-family: "Tachyo";
+		src: url("/fonts/Tachyo-1.0.0.otf");
 	}
 
 	* {
@@ -61,7 +50,10 @@ import LCDBlowup from "../components/LCD_Blowup.astro"
 		align-items: center;
 		flex-direction: column;
 		position: relative;
-
 	}
+
+ body {
+	 //background: url("../assets/nnnoise2.png");
+ }
 
 </style>

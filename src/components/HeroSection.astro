@@ -1,0 +1,65 @@
+---
+import HeroImage from "./HeroImage.astro";
+
+---
+
+<section>
+   	<HeroImage />
+	<div class="text-section">
+		<h1>
+			RM2000<span>
+				Tape Recorder
+			</span>
+
+			<br>
+
+			<span>for Macintosh</span>
+		</h1>
+	</div>
+</section>
+
+<style>
+	section {
+		width: 100%;
+		min-height: 400px;
+		height: 105%;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden; /* Ensure the pseudo-element does not overflow */
+	}
+
+	section::before {
+		content: "";
+		position: absolute;
+		inset: 0; /* Cover the entire section */
+		background: radial-gradient(ellipse 80% 60% at 50% 80%, #c1c6c4 4%, #959d9f, #6c757a, #454e56, #212732, #00010f 65%);
+		filter: blur(4px);
+		z-index: 0; /* Send it behind the content */
+	}
+
+ .text-section {
+
+	 padding-top: 0;
+	 text-align: center;
+
+	 position: relative;
+	 * {
+		 font-family: "Lucida Grande",sans-serif;
+		 color: #030408;
+		 letter-spacing: -2.3px;
+		 font-weight: 10;
+
+	 }
+
+	 h1 {
+		 font-size: 230%;
+	 }
+	 span {
+		 font-size: 70%;
+		 //letter-spacing: -1px;
+	 }
+ }
+</style>
