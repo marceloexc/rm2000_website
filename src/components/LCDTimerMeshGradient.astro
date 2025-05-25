@@ -2,19 +2,37 @@
 
 ---
 
-<h1>
-    00:00
-</h1>
+<!--https://codepen.io/hexagoncircle/pen/wBBwmqo thank you-->
+<div class="wrapper">
+    <h1>
+        <label id="minutes">00</label>:<label id="seconds">00</label>
+    </h1>
 
-<div class="orb"></div>
+    <div class="orb"></div>
+</div>
 
 
 <style>
+    .wrapper {
+        position: relative;
+        width: min(80vmin, 100%);
+        aspect-ratio: 2;
+        margin: auto;
+    }
+
     h1 {
-        color: white;
-        font-family: "Tachyo",monospace;
-        font-size: 2000%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #979797;
+        font-family: "Tachyo", monospace;
+        font-size: 700%;
         font-weight: 10;
+        margin: 0;
+        z-index: 1;
+        mix-blend-mode: hard-light;
+
     }
 
     @property --angle {
@@ -24,19 +42,22 @@
     }
 
     :root {
-        --bg: oklch(0 0 0);
-        --c1: oklch(0.795 0.078 57.296);
-        --c2: oklch(0.519 0.028 58.981);
+        --bg: oklch(0.093 0.039 260.553);
+        --c1: oklch(0.764 0.088 64.732);
+        --c2: oklch(0.756 0.166 53.391);
         --c3: oklch(0.493 0.083 56.347);
     }
 
     .orb {
         display: grid;
+        position: relative;
         grid-template-areas: "stack";
         inline-size: min(80vmin, 100%);
-        aspect-ratio: 1;
-        overflow: hidden;
+        aspect-ratio: 2;
+        //overflow: hidden;
         border-radius: 50%;
+        opacity: 80%;
+        //filter: blur(3vmin);
 
         &::before,
         &::after {
@@ -86,8 +107,8 @@
                     transparent 20% 80%,
                     var(--c3)
             );
-            box-shadow: inset var(--bg) 0 0 5vmin 1vmin;
-            filter: blur(3vmin) contrast(5);
+            box-shadow: inset var(--bg) 0 0 5vmin 5vmin;
+            filter: blur(3vmin) contrast(1);
             animation: rotate 20s linear infinite;
         }
 
@@ -100,8 +121,9 @@
             );
             background-size: calc(var(--dot) * 2) calc(var(--dot) * 2);
             mask-image: radial-gradient(black 25%, transparent 75%);
-            backdrop-filter: blur(8vmin) contrast(10);
+            backdrop-filter: blur(1vmin) contrast(10);
             mix-blend-mode: overlay;
+            opacity: 20%;
         }
     }
 
@@ -112,3 +134,24 @@
     }
 </style>
 
+<script>
+    var minutesLabel = document.getElementById("minutes");
+    var secondsLabel = document.getElementById("seconds");
+    var totalSeconds = 0;
+    setInterval(setTime, 1000);
+
+    function setTime() {
+        ++totalSeconds;
+        secondsLabel!.innerHTML = pad(totalSeconds % 60);
+        minutesLabel!.innerHTML = pad(parseInt(totalSeconds / 60));
+    }
+
+    function pad(val) {
+        var valString = val + "";
+        if (valString.length < 2) {
+            return "0" + valString;
+        } else {
+            return valString;
+        }
+    }
+</script>

@@ -6,32 +6,62 @@ import LCDTimerMeshGradient from "./LCDTimerMeshGradient.astro";
 
 	<LCDTimerMeshGradient />
 
-	<h2>
-		The Elevator Pitch
-	</h2>
+	<div class="walltext">
+		<!--//https://codepen.io/adambundy/pen/AvYvQG-->
 
-	<p>
-		Imagine you are a watching a movie and a soundbite catches your eye - a new sample idea. But how do you
-		get it off the movie into your DAW?
+		<h2>
+			The Elevator Pitch
+		</h2>
 
-		<br>
+		<p>
+			Imagine you are a watching a movie and a soundbite catches your eye - a new sample idea. But how do you
+			get it off the movie into your DAW?
 
-		Your first thought is to use a screen recorder that records system sound (does not come with macOS!), start
-		recording, then trim it, export as mp3, and then put it somewhere in your folder...this takes around a minute
-		or two
+			<br>
 
-		<br>
+			Your first thought is to use a screen recorder that records system sound (does not come with macOS!), start
+			recording, then trim it, export as mp3, and then put it somewhere in your folder...this takes around a minute
+			or two
 
-		or...you can download RM2000 Tape Recorder and do all of this in seconds.
-	</p>
+			<br>
+
+			or...you can download RM2000 Tape Recorder and do all of this in seconds.
+		</p>
+	</div>
 
 </section>
 
 <style>
 	h2, p {
-		color: white;
-		font-family: "Lucida Grande",monospace;
+		color: #898A8B;
+	}
 
+	h2 {
+		font-family: "ITCGaramond";
+		font-size: 100px;
+		background-color: #565656;
+		color: transparent;
+		text-shadow: 2px 2px 3px rgba(255,255,255,0.5);
+		-webkit-background-clip: text;
+		-moz-background-clip: text;
+		background-clip: text;
+	}
+
+	p {
+		font-family: "Lucida Grande",monospace;
+	}
+
+	.walltext {
+		max-width: 80vmin;
+		background: rgb(0, 1, 15);
+		background: linear-gradient(180deg, rgba(227, 233, 231, 0.2) 1%, rgb(0, 1, 15) 17%, rgba(0, 0, 0, 1) 73%, rgba(227, 233, 231, 0.2) 100%);
+
+	}
+
+	/*TODO - think about min-maxing stuff like this */
+
+	section {
+		display: flex;
 	}
 
 </style>
