@@ -1,0 +1,127 @@
+---
+import LCDTimerMeshGradient from "./LCDTimerMeshGradient.astro";
+import WallText from "./WallText.astro";
+import RecordingTapeImage from '../assets/recordingtape.svg'
+import { Image } from "astro:assets";
+
+---
+
+<section>
+
+	<LCDTimerMeshGradient class="gradient_mesh" />
+
+	<WallText />
+
+	<div class="walltext">
+		<!--//https://codepen.io/adambundy/pen/AvYvQG-->
+
+		<h2>
+			The Elevator Pitch
+		</h2>
+
+		<p>
+			You're browsing YouTube. You’re in a game menu. You hear a loop on Apple Music. A sound stands out.
+
+			<br> <br>
+
+			If you're using a Mac, capturing that usually means downloading third-party plugins, setting up clunky routing, and wasting time.
+
+			<br> <br>
+
+			RM2000 just listens. Whatever your Mac is playing, it can record it instantly—then file, tag, and organize it for you.
+		</p>
+
+		<Image class="recordingtapeimage" src={RecordingTapeImage} alt="Recording Tape"/>
+
+	</div>
+
+	<div class="HI">
+		<h1>Hiiii</h1>
+	</div>
+
+</section>
+
+<div class="rectangleradial"></div>
+
+
+<style>
+	h2, p {
+		color: #898A8B;
+	}
+
+	h2 {
+		font-family: "ITCGaramond";
+		font-size: 84px;
+		background-color: #565656;
+		color: transparent;
+		text-shadow: 2px 2px 3px rgba(255,255,255,0.2);
+		-webkit-background-clip: text;
+		-moz-background-clip: text;
+		background-clip: text;
+		margin: 0;
+		margin-top: 6rem;
+		text-align: center;
+	}
+
+	p {
+		font-family: "Lucida Grande",monospace;
+		padding-inline: 50px;
+		text-align: right;
+	}
+
+	.walltext {
+		max-width: 40em;
+		min-height: 50rem;
+		background: rgb(0, 1, 15);
+		background: linear-gradient(180deg, rgba(227, 233, 231, 0.2) 1%, rgb(0, 2, 14) 17%, rgb(0, 2, 14) 73%, rgba(227, 233, 231, 0.2) 100%);
+		border: 0.5rem solid;
+		border-top: 0;
+		border-image-slice: 1;
+		border-image-source: linear-gradient(
+			to bottom,
+			rgba(227, 233, 231, 0.2),
+			rgba(151, 151, 151, 0.48),
+			rgba(151, 151, 151, 0),
+			#979797
+		);
+	}
+
+	.rectangleradial {
+		padding: 10px;
+		background: rgb(0, 1, 15);
+		background: radial-gradient(ellipse 80% 60% at 50% 80%, #512f24, #212732, #00010f 65%);
+	}
+
+	.recordingtapeimage {
+		bottom: 0;
+		color: white;
+		background-color: white;
+	}
+
+	/*TODO - think about min-maxing stuff like this for mobile devices */
+
+	section {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-areas:
+			'gradient_mesh walltext'
+			'hi walltext'
+
+	}
+
+	section > .gradient_mesh {
+		grid-area: gradient_mesh;
+	}
+
+	section > .walltext {
+		grid-area: walltext;
+	}
+
+	section > .hi {
+		grid-area: hi
+	}
+
+</style>
+
+
+

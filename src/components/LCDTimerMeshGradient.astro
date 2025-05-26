@@ -3,7 +3,7 @@
 ---
 
 <!--https://codepen.io/hexagoncircle/pen/wBBwmqo thank you-->
-<div class="wrapper">
+<div class="orb-wrapper">
     <h1>
         <label id="minutes">00</label>:<label id="seconds">00</label>
     </h1>
@@ -13,9 +13,9 @@
 
 
 <style>
-    .wrapper {
+    .orb-wrapper {
         position: relative;
-        width: min(80vmin, 100%);
+        width: 80vmin;
         aspect-ratio: 2;
         margin: auto;
     }
@@ -27,11 +27,12 @@
         transform: translate(-50%, -50%);
         color: #979797;
         font-family: "Tachyo", monospace;
-        font-size: 700%;
+        font-size: 900%;
         font-weight: 10;
         margin: 0;
         z-index: 1;
         mix-blend-mode: hard-light;
+        text-shadow: rgb(61, 72, 72) 0px 0px 36px;
 
     }
 
@@ -52,7 +53,7 @@
         display: grid;
         position: relative;
         grid-template-areas: "stack";
-        inline-size: min(80vmin, 100%);
+        inline-size: 100%;
         aspect-ratio: 2;
         //overflow: hidden;
         border-radius: 50%;
