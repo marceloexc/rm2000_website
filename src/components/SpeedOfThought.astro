@@ -4,7 +4,7 @@ import LucidaParagraph from "./LucidaParagraph.astro";
 ---
 
 <section>
-    <GaramondInsetShadow>
+    <GaramondInsetShadow class="topmargin">
         Speed of Thought
     </GaramondInsetShadow>
 
@@ -26,4 +26,8 @@ import LucidaParagraph from "./LucidaParagraph.astro";
     :global(.rightalign) {
         text-align: right;
     }
+
+ :global(.topmargin) {
+	 margin-top: 6rem !important;
+ }
 </style>

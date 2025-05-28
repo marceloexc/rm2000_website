@@ -1,0 +1,156 @@
+---
+// VUMeter.astro
+---
+
+  <div class="vu-meter" id="vuMeter">
+    <div class="volume-bar" id="volumeBar"></div>
+    <div class="idle-overlay"></div>
+    <canvas class="dot-matrix" id="dotMatrix"></canvas>
+  </div>
+
+<style>
+ .vu-meter {
+     position: relative;
+     width: 60px;
+     height: 250px;
+     /* background: #0a0a0a; */
+     border: 2px solid rgba(227, 233, 231, 0.01);
+		 overflow: hidden;
+		 box-shadow: 
+			 inset 0 0 10px rgba(0, 0, 0, 0.8),
+			 0 0 20px rgba(0, 0, 0, 0.5);
+ }
+
+ .volume-bar {
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     width: 100%;
+     background: linear-gradient(
+		 to top,
+		 rgba(227, 233, 231, 0.01) 0%,
+		 #43474f 100%
+     );
+     transition: height 0.05s ease-out;
+     height: 0%;
+ }
+
+ .idle-overlay {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background: rgba(0, 0, 0, 0.2);
+     pointer-events: none;
+ }
+
+ .dot-matrix {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     pointer-events: none;
+     mix-blend-mode: multiply;
+ }
+</style>
+
+<script>
+ class VUMeter {
+     constructor() {
+		 this.volumeBar = document.getElementById('volumeBar');
+		 this.canvas = document.getElementById('dotMatrix');
+		 this.ctx = this.canvas.getContext('2d');
+		 this.currentVolume = 0;
+		 this.targetVolume = 0;
+		 
+		 this.setupCanvas();
+		 this.startAudioSimulation();
+		 this.animate();
+     }
+
+     setupCanvas() {
+		 const rect = this.canvas.getBoundingClientRect();
+		 this.canvas.width = rect.width * window.devicePixelRatio;
+		 this.canvas.height = rect.height * window.devicePixelRatio;
+		 this.ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+		 this.drawDotMatrix();
+     }
+
+     drawDotMatrix() {
+		 const width = this.canvas.width / window.devicePixelRatio;
+		 const height = this.canvas.height / window.devicePixelRatio;
+		 
+		 this.ctx.clearRect(0, 0, width, height);
+		 this.ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';
+		 
+		 // Create dot matrix pattern similar to Metal shader
+		 for (let x = 0; x < width; x += 2) {
+			 for (let y = 0; y < height; y += 4) {
+				 if (x % 2 === 0 && y % 4 === 0) {
+					 this.ctx.fillRect(x, y, 2, 2);
+				 }
+			 }
+		 }
+     }
+
+     generateFakeAudioData() {
+		 const time = Date.now() / 1000;
+		 
+		 // Simulate realistic audio with multiple frequency components
+		 const bass = Math.sin(time * 2) * 0.9;
+		 const mid = Math.sin(time * 8) * 0.4;
+		 const treble = Math.sin(time * 20) * 0.2;
+		 const noise = (Math.random() - 0.5) * 0.1;
+		 
+		 // Combine frequencies and add some randomness
+		 let level = bass + mid + treble + noise;
+		 
+		 // Add occasional peaks
+		 if (Math.random() < 0.05) {
+			 level += Math.random() * 0.5;
+		 }
+		 
+		 // Normalize to 0-1 range
+		 level = Math.max(0, Math.min(1, (level + 1) / 2));
+		 
+		 // Add some decay for more realistic behavior
+		 if (Math.random() < 0.1) {
+			 level *= 0.3;
+		 }
+		 
+		 return level;
+     }
+
+     startAudioSimulation() {
+		 setInterval(() => {
+			 this.targetVolume = this.generateFakeAudioData();
+		 }, 30); 
+     }
+
+     animate() {
+		 // Smooth interpolation towards target volume
+		 const lerpSpeed = 0.35;
+		 this.currentVolume += (this.targetVolume - this.currentVolume) * lerpSpeed;
+		 
+		 // Update the volume bar height
+		 const heightPercent = this.currentVolume * 100;
+		 this.volumeBar.style.height = `${heightPercent}%`;
+		 
+		 requestAnimationFrame(() => this.animate());
+     }
+ }
+
+ // Initialize when the page loads
+ document.addEventListener('DOMContentLoaded', () => {
+     new VUMeter();
+ });
+
+ // Handle window resize
+ window.addEventListener('resize', () => {
+     const canvas = document.getElementById('dotMatrix');
+     const vuMeter = new VUMeter();
+     vuMeter.setupCanvas();
+ });
+</script>

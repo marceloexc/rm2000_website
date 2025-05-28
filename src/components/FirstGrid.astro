@@ -7,6 +7,8 @@ import SpeedOfThought from "./SpeedOfThought.astro";
 import GaramondInsetShadow from "./GaramondInsetShadow.astro";
 import LucidaParagraph from "./LucidaParagraph.astro";
 import PulsatingRecordButton from "./PulsatingRecordButton.astro";
+import BrassXLR from '../assets/brass xlr2x.png'
+import VUMeter from "./VUMeter.astro";
 ---
 
 <section>
@@ -18,22 +20,28 @@ import PulsatingRecordButton from "./PulsatingRecordButton.astro";
 
 		<SpeedOfThought />
 
-		<PulsatingRecordButton />
+		<div style="display: flex;">
+			<PulsatingRecordButton />
 
-		<Image src={Eye} alt="Eye"/>
+			<Image src={BrassXLR} width={100} alt="Eye" quality={100} />
+		</div>
 
 		<Image class="recordingtapeimage" src={RecordingTapeImage} alt="Recording Tape" width={300}/>
 
 	</div>
 
 	<div class="effortless_organization_section">
-		<GaramondInsetShadow>
-			Effortless Organization
+		<GaramondInsetShadow class="remove-top-margin">
+			No routing. No setup.
 		</GaramondInsetShadow>
 
-		<LucidaParagraph>
-			Uses a tagging system that will work across any device and any daw.
-		</LucidaParagraph>
+		<div style="display: flex; gap: 5rem; margin-right: 0;">
+			<LucidaParagraph style="max-width: 30rem;" >
+				RM2000 Tape Recorder works straight out of the box and hears what you hears. No more fighting with Soundflower or audio routing.
+			</LucidaParagraph>
+
+			<VUMeter />
+		</div>
 
 	</div>
 
@@ -44,10 +52,10 @@ import PulsatingRecordButton from "./PulsatingRecordButton.astro";
 <style>
 	.walltext {
 		display: flex;
-		gap: 140px;
+		gap: 3rem;
 		flex-direction: column;
 		max-width: 35em;
-		min-height: 70rem;
+		min-height: 30rem;
 		background: rgb(0, 1, 15);
 		background: linear-gradient(180deg, rgba(227, 233, 231, 0.24) 1%, rgb(0, 2, 14) 50%, rgb(0, 2, 14) 73%, rgba(227, 233, 231, 0.2) 100%);
 		border: 0.7rem solid;
@@ -91,8 +99,12 @@ import PulsatingRecordButton from "./PulsatingRecordButton.astro";
 			rgba(151, 151, 151, 0),
 			rgba(151, 151, 151, 0)
 		);
-		min-height: 40rem;
+		min-height: 15rem;
 	}
+
+ :global(.remove-top-margin) {
+	 margin-top: 3rem !important;
+ }
 
 	/*TODO - think about min-maxing stuff like this for mobile devices */
 
