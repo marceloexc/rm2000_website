@@ -1,13 +1,70 @@
+---
+import LucidaParagraph from "./LucidaParagraph.astro";
+import { Image } from "astro:assets";
+import World from '../assets/world.svg'
+---
 <footer>
-	<h1>
-		Made by Marcelo Mendez.
-		<br>
-		Check out my other links here!
-	</h1>
+	<section>
+		<div class="text-section">
+			<LucidaParagraph>
+				Made by Marcelo Mendez
+
+				<br> <br>
+
+				Check out all of my other stuff!
+			</LucidaParagraph>
+
+		</div>
+		<Image src={World} alt ="world" class="world-svg" />
+
+	</section>
 </footer>
 
 <style>
-	h1 {
-		color: white;
-	}
+ h1 {
+	 color: white;
+ }
+
+ footer {
+	 min-height: 30rem;
+	 & 	section {
+		 width: 100%;
+		 min-height: 30rem;
+		 height: 105%;
+		 position: relative;
+		 display: flex;
+		 flex-direction: column;
+		 align-items: center;
+		 justify-content: center;
+		 overflow: hidden; /* Ensure the pseudo-element does not overflow */
+	 }
+
+	 & section::before {
+		 content: "";
+		 position: absolute;
+		 inset: 0; /* Cover the entire section */
+		 background: radial-gradient(ellipse 100% 100% at 50% 90%, #332e37 4%, #1e1a25,  #00010f 65%);
+		 filter: blur(4px);
+		 z-index: 0; /* Send it behind the content */
+	 }
+ }
+
+ .text-section {
+
+	 padding-top: 5em;
+	 text-align: center;
+	 position: relative;
+	 display: flex;
+	 flex-direction: column;
+ }
+
+ 
+ .world-svg {
+	 margin-top: auto;
+	 display: flex;
+	 margin-bottom: -1rem;
+	 position: relative;
+ }
+
+ 
 </style>

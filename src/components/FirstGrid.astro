@@ -1,80 +1,56 @@
 ---
 import LCDTimerMeshGradient from "./LCDTimerMeshGradient.astro";
-import WallText from "./WallText.astro";
-import RecordingTapeImage from '../assets/recordingtape.svg'
+import RecordingTapeImage from '../assets/recording tape 2x.png';
+import Eye from '../assets/Eye.svg';
 import { Image } from "astro:assets";
-
+import SpeedOfThought from "./SpeedOfThought.astro";
+import GaramondInsetShadow from "./GaramondInsetShadow.astro";
+import LucidaParagraph from "./LucidaParagraph.astro";
+import PulsatingRecordButton from "./PulsatingRecordButton.astro";
 ---
 
 <section>
 
 	<LCDTimerMeshGradient class="gradient_mesh" />
 
-	<WallText />
-
 	<div class="walltext">
-		<!--//https://codepen.io/adambundy/pen/AvYvQG-->
+		<!-- https://codepen.io/adambundy/pen/AvYvQG -->
 
-		<h2>
-			The Elevator Pitch
-		</h2>
+		<SpeedOfThought />
 
-		<p>
-			You're browsing YouTube. You’re in a game menu. You hear a loop on Apple Music. A sound stands out.
+		<PulsatingRecordButton />
 
-			<br> <br>
+		<Image src={Eye} alt="Eye"/>
 
-			If you're using a Mac, capturing that usually means downloading third-party plugins, setting up clunky routing, and wasting time.
-
-			<br> <br>
-
-			RM2000 just listens. Whatever your Mac is playing, it can record it instantly—then file, tag, and organize it for you.
-		</p>
-
-		<Image class="recordingtapeimage" src={RecordingTapeImage} alt="Recording Tape"/>
+		<Image class="recordingtapeimage" src={RecordingTapeImage} alt="Recording Tape" width={300}/>
 
 	</div>
 
-	<div class="HI">
-		<h1>Hiiii</h1>
+	<div class="effortless_organization_section">
+		<GaramondInsetShadow>
+			Effortless Organization
+		</GaramondInsetShadow>
+
+		<LucidaParagraph>
+			Uses a tagging system that will work across any device and any daw.
+		</LucidaParagraph>
+
 	</div>
 
 </section>
 
 <div class="rectangleradial"></div>
 
-
 <style>
-	h2, p {
-		color: #898A8B;
-	}
-
-	h2 {
-		font-family: "ITCGaramond";
-		font-size: 84px;
-		background-color: #565656;
-		color: transparent;
-		text-shadow: 2px 2px 3px rgba(255,255,255,0.2);
-		-webkit-background-clip: text;
-		-moz-background-clip: text;
-		background-clip: text;
-		margin: 0;
-		margin-top: 6rem;
-		text-align: center;
-	}
-
-	p {
-		font-family: "Lucida Grande",monospace;
-		padding-inline: 50px;
-		text-align: right;
-	}
-
 	.walltext {
-		max-width: 40em;
-		min-height: 50rem;
+		display: flex;
+		gap: 140px;
+		flex-direction: column;
+		max-width: 35em;
+		min-height: 70rem;
 		background: rgb(0, 1, 15);
-		background: linear-gradient(180deg, rgba(227, 233, 231, 0.2) 1%, rgb(0, 2, 14) 17%, rgb(0, 2, 14) 73%, rgba(227, 233, 231, 0.2) 100%);
-		border: 0.5rem solid;
+		background: linear-gradient(180deg, rgba(227, 233, 231, 0.24) 1%, rgb(0, 2, 14) 50%, rgb(0, 2, 14) 73%, rgba(227, 233, 231, 0.2) 100%);
+		border: 0.7rem solid;
 		border-top: 0;
 		border-image-slice: 1;
 		border-image-source: linear-gradient(
@@ -89,23 +65,43 @@ import { Image } from "astro:assets";
 	.rectangleradial {
 		padding: 10px;
 		background: rgb(0, 1, 15);
+		min-height: 5px;
 		background: radial-gradient(ellipse 80% 60% at 50% 80%, #512f24, #212732, #00010f 65%);
+		bottom: -50px;
 	}
 
 	.recordingtapeimage {
-		bottom: 0;
-		color: white;
-		background-color: white;
+		margin-top: auto;
+		filter: contrast(100%) brightness(100%);
+		display: flex;
+		margin-left: auto;
+		padding-bottom: 5rem;
+		padding-right: 1.5rem;
+	}
+
+	.effortless_organization_section {
+		background: linear-gradient(90deg,rgba(227, 233, 231, 0.3) 0%, rgb(0, 2, 14) 25%, rgba(0, 0, 0, 0) 100%);
+		border: 0.5rem solid;
+		border-inline: 0;
+		border-image-slice: 1;
+		border-image-source: linear-gradient(
+			to right,
+			rgba(227, 233, 231, 0.2),
+			rgba(151, 151, 151, 0.48),
+			rgba(151, 151, 151, 0),
+			rgba(151, 151, 151, 0)
+		);
+		min-height: 40rem;
 	}
 
 	/*TODO - think about min-maxing stuff like this for mobile devices */
 
 	section {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: 1.5fr 1fr;
 		grid-template-areas:
 			'gradient_mesh walltext'
-			'hi walltext'
+			'effortless_organization_section walltext'
 
 	}
 
@@ -117,8 +113,8 @@ import { Image } from "astro:assets";
 		grid-area: walltext;
 	}
 
-	section > .hi {
-		grid-area: hi
+	section > .effortless_organization_section {
+		grid-area: effortless_organization_section
 	}
 
 </style>

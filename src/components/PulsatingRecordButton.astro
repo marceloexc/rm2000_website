@@ -1,0 +1,56 @@
+---
+import ActiveImage from '../assets/RecordButtonActive_2x.png'
+import InactiveImage from '../assets/RecordButton_2x.png'
+import Glow from '../assets/Record Button Glow_2x.png'
+---
+
+<style>
+    .button-container {
+        display: flex;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .button-stack {
+        display: flex;
+        position: relative;
+        justify-content: center;
+        & img {
+            max-width: 100px;
+        }
+    }
+
+    .activeButton {
+        z-index: 1;
+    }
+
+    .backgroundInactiveButton {
+        position: absolute;
+        z-index: 2;
+    }
+
+    .glow {
+        position: absolute;
+        z-index: 3;
+        max-width: 150px;
+        filter: brightness(3%);
+    }
+
+    .pulsing {
+        animation: pulse 1s ease-in-out infinite alternate;
+    }
+
+    @keyframes pulse {
+        from { opacity: 0.1; }
+        to { opacity: 1; }
+    }
+</style>
+
+<div class="button-container">
+    <div class="button-stack">
+        <img src={ActiveImage.src} alt="Active" class="activeButton" />
+        <img class="backgroundInactiveButton pulsing" src={InactiveImage.src} alt="Inactive" />
+    </div>
+    <img class="glow pulsing" src={Glow.src} alt="Glow" />
+</div>

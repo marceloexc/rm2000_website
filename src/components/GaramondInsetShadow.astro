@@ -1,0 +1,27 @@
+---
+const { class: className } = Astro.props;
+---
+<h2 class:list={[className]}>
+    <slot />
+</h2>
+
+<style>
+    h2 {
+        color:  #898A8B;
+        font-family: "ITCGaramond";
+        font-size: 76px;
+        /*
+        background-color: #565656;
+        color: transparent;
+        text-shadow: 2px 2px 3px rgba(255,255,255,0.2);
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        background-clip: text;
+         */
+
+        color: #565656
+        margin: 0;
+        margin-top: 6rem;
+        text-align: center;
+    }
+</style>

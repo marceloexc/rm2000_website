@@ -44,8 +44,8 @@
 
     :root {
         --bg: oklch(0.093 0.039 260.553);
-        --c1: oklch(0.764 0.088 64.732);
-        --c2: oklch(0.756 0.166 53.391);
+        --c1: oklch(0.692 0.076 63.317);
+        --c2: oklch(0.642 0.117 52.639);
         --c3: oklch(0.493 0.083 56.347);
     }
 
@@ -54,11 +54,10 @@
         position: relative;
         grid-template-areas: "stack";
         inline-size: 100%;
-        aspect-ratio: 2;
+        aspect-ratio: 1.3;
         //overflow: hidden;
         border-radius: 50%;
         opacity: 80%;
-        //filter: blur(3vmin);
 
         &::before,
         &::after {
@@ -108,9 +107,13 @@
                     transparent 20% 80%,
                     var(--c3)
             );
-            box-shadow: inset var(--bg) 0 0 5vmin 5vmin;
+            box-shadow: inset var(--bg) 0 0 15em 1.5em; /* Example values using em */
+
             filter: blur(3vmin) contrast(1);
+            /*
             animation: rotate 20s linear infinite;
+
+             */
         }
 
         &::after {
@@ -124,7 +127,7 @@
             mask-image: radial-gradient(black 25%, transparent 75%);
             backdrop-filter: blur(1vmin) contrast(10);
             mix-blend-mode: overlay;
-            opacity: 20%;
+            opacity: 30%;
         }
     }
 
