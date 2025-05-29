@@ -5,29 +5,57 @@ import MacBookScreenImg from '../assets/macbook_pro_large.png'
 
 <section>
 
-	<Image src={MacBookScreenImg} alt="MacBook screen" width={1000} style="display: flex; margin: auto;" />
+  <Image src={MacBookScreenImg} alt="MacBook screen" width={1000} class="macbook-pro-image"/>
 
-	<div class="macbook_pro_stand">
-	</div>
-	
+  <div id="macbookStand" class="macbook_pro_stand">
+  </div>
+  
 </section>
 
 <style>
-
  section {
-	 background: radial-gradient(ellipse 70% 60%, #516068 4%, #00010f 65%);
-	 width: 100%;
-	 display: flex;
-	 flex-direction: column;
-	 min-height: 50rem;
+     background: radial-gradient(ellipse 70% 60%, #516068 4%, #00010f 65%);
+     width: 100%;
+     display: flex;
+     flex-direction: column;
+     min-height: 50rem;
+ }
+
+ .macbook-pro-image {
+     display: flex;
+     margin: auto;
+     margin-bottom: -1rem;
+     z-index: 2;
  }
 
  .macbook_pro_stand {
-	 padding: 4px;
-	 height: 10rem;
-	 background: radial-gradient(ellipse 50% 500%, #516068 4%, #00010f 65%);
+     opacity: 10%;
+     transition: opacity 2s ease-in-out;
+     padding: 4px;
+     height: 10rem;
+     background: radial-gradient(ellipse 70% 200% at 50% -10%, #516068 4%, #00010f 65%);
  }
- 
 
+ .macbook_pro_stand.visible {
+     opacity: 100%;
+ }
 </style>
 
+<script>
+ document.addEventListener("DOMContentLoaded", () => {
+     const stand = document.getElementById("macbookStand");
+     const observer = new IntersectionObserver(
+		 ([entry]) => {
+			 if (entry.isIntersecting) {
+				 stand.classList.add("visible");
+			 } else {
+				 stand.classList.remove("visible");
+			 }
+		 },
+		 {
+			 threshold: 0.1,
+		 }
+     );
+     observer.observe(stand);
+ });
+</script>
