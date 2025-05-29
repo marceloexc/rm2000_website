@@ -16,14 +16,16 @@ import VUMeter from "./VUMeter.astro";
 	<LCDTimerMeshGradient class="gradient_mesh" />
 
 	<div class="walltext">
-		<!-- https://codepen.io/adambundy/pen/AvYvQG -->
 
-		<SpeedOfThought />
+		<div>
+			<!-- https://codepen.io/adambundy/pen/AvYvQG -->
+			<SpeedOfThought />
 
-		<div style="display: flex;">
-			<PulsatingRecordButton />
+			<div style="display: flex; justify-content: flex-end; padding-right: 2.8rem; padding-top: 0.2rem;">
+				<PulsatingRecordButton />
 
-			<Image src={BrassXLR} width={100} alt="Eye" quality={100} />
+				<Image src={BrassXLR} width={100} alt="Eye" quality={100} />
+			</div>
 		</div>
 
 		<Image class="recordingtapeimage" src={RecordingTapeImage} alt="Recording Tape" width={300}/>
@@ -35,8 +37,8 @@ import VUMeter from "./VUMeter.astro";
 			No routing. No setup.
 		</GaramondInsetShadow>
 
-		<div style="display: flex; gap: 5rem; margin-right: 0;">
-			<LucidaParagraph style="max-width: 30rem;" >
+		<div style="display: flex; gap: 10rem; margin-left: 3rem;">
+			<LucidaParagraph style="max-width: 20rem;" >
 				RM2000 Tape Recorder works straight out of the box and hears what you hears. No more fighting with Soundflower or audio routing.
 			</LucidaParagraph>
 
@@ -47,15 +49,20 @@ import VUMeter from "./VUMeter.astro";
 
 </section>
 
-<div class="rectangleradial"></div>
+<div style="position: relative;">
+	<section>
+	</section>
+	<div class="rectangleradial"></div>
+</div>
+
 
 <style>
 	.walltext {
 		display: flex;
-		gap: 3rem;
+		gap: 5rem;
 		flex-direction: column;
 		max-width: 35em;
-		min-height: 30rem;
+		min-height: 70rem;
 		background: rgb(0, 1, 15);
 		background: linear-gradient(180deg, rgba(227, 233, 231, 0.24) 1%, rgb(0, 2, 14) 50%, rgb(0, 2, 14) 73%, rgba(227, 233, 231, 0.2) 100%);
 		border: 0.7rem solid;
@@ -70,22 +77,26 @@ import VUMeter from "./VUMeter.astro";
 		);
 	}
 
-	.rectangleradial {
-		padding: 10px;
-		background: rgb(0, 1, 15);
-		min-height: 5px;
-		background: radial-gradient(ellipse 80% 60% at 50% 80%, #512f24, #212732, #00010f 65%);
-		bottom: -50px;
-	}
+ .rectangleradial {
+	 position: absolute;
+	 padding: 4px;
+	 z-index: 10; 
+	 left: 0;
+	 right: 0;
+	 height: 5px;
+	 background: radial-gradient(ellipse 20% 100%, rgba(140,152,156, 0.2), #000000, #512F24 270%);
+	 top: calc(100% - 32rem);
+ }
 
-	.recordingtapeimage {
-		margin-top: auto;
-		filter: contrast(100%) brightness(100%);
-		display: flex;
-		margin-left: auto;
-		padding-bottom: 5rem;
-		padding-right: 1.5rem;
-	}
+
+ .recordingtapeimage {
+	 margin-top: auto;
+	 filter: contrast(100%) brightness(100%);
+	 display: flex;
+	 margin-left: auto;
+	 padding-bottom: 5rem;
+	 padding-right: 1.5rem;
+ }
 
 	.effortless_organization_section {
 		background: linear-gradient(90deg,rgba(227, 233, 231, 0.3) 0%, rgb(0, 2, 14) 25%, rgba(0, 0, 0, 0) 100%);
@@ -99,23 +110,26 @@ import VUMeter from "./VUMeter.astro";
 			rgba(151, 151, 151, 0),
 			rgba(151, 151, 151, 0)
 		);
-		min-height: 15rem;
+		min-height: 23rem;
+		max-height: 23rem;
 	}
 
  :global(.remove-top-margin) {
 	 margin-top: 3rem !important;
+	 margin-bottom: 1rem !important;
  }
 
-	/*TODO - think about min-maxing stuff like this for mobile devices */
+ /*TODO - think about min-maxing stuff like this for mobile devices */
 
-	section {
-		display: grid;
-		grid-template-columns: 1.5fr 1fr;
-		grid-template-areas:
-			'gradient_mesh walltext'
-			'effortless_organization_section walltext'
+ section {
+	 display: grid;
+	 grid-template-columns: 1.5fr 1fr;
+	 grid-template-rows: 2fr;
+	 grid-template-areas:
+		 'gradient_mesh walltext'
+		 'effortless_organization_section walltext'
 
-	}
+ }
 
 	section > .gradient_mesh {
 		grid-area: gradient_mesh;
