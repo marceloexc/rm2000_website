@@ -1,0 +1,31 @@
+---
+const { class: className = "" } = Astro.props;
+---
+
+<div class={className}>
+	<slot />
+</div>
+
+<style>
+
+ .right-column-style {
+	 display: flex;
+	 gap: 5rem;
+	 flex-direction: column;
+	 max-width: 35em;
+	 min-height: 70rem;
+	 background: rgb(0, 1, 15);
+	 background: linear-gradient(180deg, rgba(227, 233, 231, 0.24) 1%, rgb(0, 2, 14) 50%, rgb(0, 2, 14) 73%, rgba(227, 233, 231, 0.2) 100%);
+	 border: 0.7rem solid;
+	 border-top: 0;
+	 border-image-slice: 1;
+	 border-image-source: linear-gradient(
+		 to bottom,
+		 rgba(227, 233, 231, 0.2),
+		 rgba(151, 151, 151, 0.48),
+		 rgba(151, 151, 151, 0),
+		 #979797
+	 );
+ }
+	 
+</style>

@@ -1,14 +1,19 @@
 ---
 import { Image } from "astro:assets";
 import MacBookScreenImg from '../assets/macbook_pro_large.png'
+import GaramondInsetShadow from "./GaramondInsetShadow.astro";
 ---
 
 <section>
 
-  <Image src={MacBookScreenImg} alt="MacBook screen" width={1000} class="macbook-pro-image"/>
+	<GaramondInsetShadow style="margin-block: 7rem !important;">
+		Turn your Mac into a Sampler
+	</GaramondInsetShadow>
 
-  <div id="macbookStand" class="macbook_pro_stand">
-  </div>
+	<Image src={MacBookScreenImg} alt="MacBook screen" width={1000} class="macbook-pro-image"/>
+
+	<div id="macbookStand" class="macbook_pro_stand">
+	</div>
   
 </section>
 

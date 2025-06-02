@@ -1,7 +1,7 @@
 ---
-const { class: className } = Astro.props;
+const { class: className, style: styleAttr } = Astro.props;
 ---
-<h2 class:list={[className]}>
+<h2 class:list={[className]} style={styleAttr}>
     <slot />
 </h2>
 

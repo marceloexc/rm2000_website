@@ -8,16 +8,17 @@ import LucidaParagraph from "./LucidaParagraph.astro";
 import PulsatingRecordButton from "./PulsatingRecordButton.astro";
 import BrassXLR from '../assets/brass xlr2x.png'
 import VUMeter from "./VUMeter.astro";
+import RightColumn from "./RightColumn.astro";
 ---
 
-<section>
+<section class="parent-grid">
 
 	<LCDTimerMeshGradient class="gradient_mesh" />
-
-	<div class="walltext">
+	
+	<RightColumn class="walltext right-column-style">
 
 		<div>
-			<!-- https://codepen.io/adambundy/pen/AvYvQG -->
+
 			<SpeedOfThought />
 
 			<div style="display: flex; justify-content: flex-end; padding-right: 2.8rem; padding-top: 0.2rem;">
@@ -25,11 +26,12 @@ import VUMeter from "./VUMeter.astro";
 
 				<Image src={BrassXLR} width={100} alt="Eye" quality={100} />
 			</div>
+
 		</div>
 
 		<Image class="recordingtapeimage" src={RecordingTapeImage} alt="Recording Tape" width={300}/>
 
-	</div>
+	</RightColumn>
 
 	<div class="effortless_organization_section">
 		<GaramondInsetShadow class="remove-top-margin">
@@ -56,25 +58,6 @@ import VUMeter from "./VUMeter.astro";
 
 
 <style>
-	.walltext {
-		display: flex;
-		gap: 5rem;
-		flex-direction: column;
-		max-width: 35em;
-		min-height: 70rem;
-		background: rgb(0, 1, 15);
-		background: linear-gradient(180deg, rgba(227, 233, 231, 0.24) 1%, rgb(0, 2, 14) 50%, rgb(0, 2, 14) 73%, rgba(227, 233, 231, 0.2) 100%);
-		border: 0.7rem solid;
-		border-top: 0;
-		border-image-slice: 1;
-		border-image-source: linear-gradient(
-			to bottom,
-			rgba(227, 233, 231, 0.2),
-			rgba(151, 151, 151, 0.48),
-			rgba(151, 151, 151, 0),
-			#979797
-		);
-	}
 
  .rectangleradial {
 	 position: absolute;
@@ -120,7 +103,7 @@ import VUMeter from "./VUMeter.astro";
 
  /*TODO - think about min-maxing stuff like this for mobile devices */
 
- section {
+ .parent-grid {
 	 display: grid;
 	 grid-template-columns: 1.5fr 1fr;
 	 grid-template-rows: 2fr;
@@ -130,17 +113,17 @@ import VUMeter from "./VUMeter.astro";
 
  }
 
-	section > .gradient_mesh {
-		grid-area: gradient_mesh;
-	}
+ :global(.parent-grid > .gradient_mesh) {
+	 grid-area: gradient_mesh;
+ }
 
-	section > .walltext {
-		grid-area: walltext;
-	}
+ :global(.parent-grid > .walltext) {
+	 grid-area: walltext;
+ }
 
-	section > .effortless_organization_section {
-		grid-area: effortless_organization_section
-	}
+ .parent-grid > .effortless_organization_section {
+	 grid-area: effortless_organization_section
+ }
 
 </style>
 
