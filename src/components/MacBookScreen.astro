@@ -10,8 +10,8 @@ import GaramondInsetShadow from "./GaramondInsetShadow.astro";
 		Turn your Mac into a Sampler
 	</GaramondInsetShadow>
 
-	<Image src={MacBookScreenImg} alt="MacBook screen" width={1000} class="macbook-pro-image"/>
-
+	<img src={MacBookScreenImg.src} class="macbook-pro-image" >
+	
 	<div id="macbookStand" class="macbook_pro_stand">
 	</div>
   
@@ -31,6 +31,9 @@ import GaramondInsetShadow from "./GaramondInsetShadow.astro";
      margin: auto;
      margin-bottom: -1rem;
      z-index: 2;
+
+	 max-width: 100%;
+	 width: 1000px;
  }
 
  .macbook_pro_stand {

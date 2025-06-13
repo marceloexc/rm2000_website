@@ -113,6 +113,24 @@ import RightColumn from "./RightColumn.astro";
 
  }
 
+ @media (max-width: 1300px) {
+	 .effortless_organization_section {
+		 background: navy;
+	 }
+
+	 .parent-grid {
+		 grid-template-columns: 1fr; /* Single column for mobile */
+		 grid-template-rows: auto auto auto; /* Rows adjust to content */
+		 grid-template-areas:
+			 'walltext'
+			 'gradient_mesh'
+			 'effortless_organization_section';
+		 display: flex; /* Change to flexbox for better stacking control */
+		 flex-direction: column; /* Stack items vertically */
+	 }
+ }
+ 
+
  :global(.parent-grid > .gradient_mesh) {
 	 grid-area: gradient_mesh;
  }

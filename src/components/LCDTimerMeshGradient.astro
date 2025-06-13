@@ -16,6 +16,7 @@
     .orb-wrapper {
         position: relative;
         width: 50rem;
+		max-width: 100%;
         aspect-ratio: 2;
         /* margin: auto; */
     }
@@ -35,6 +36,12 @@
         text-shadow: rgb(61, 72, 72) 0px 0px 36px;
 
     }
+ 
+    @media (max-width: 600px) {
+		h1 {
+			font-size: 600%;
+		}
+     }
 
     @property --angle {
         syntax: "<angle>";
@@ -109,7 +116,7 @@
             );
             box-shadow: inset var(--bg) 0 0 15rem 5rem; /* Example values using em */
             filter: blur(3vmin) contrast(1);
-            /* animation: rotate 20s linear infinite; */
+            animation: rotate 20s linear infinite;
         }
 
         &::after {
@@ -122,7 +129,8 @@
             background-size: calc(var(--dot) * 2) calc(var(--dot) * 2);
             mask-image: radial-gradient(black 25%, transparent 75%);
             backdrop-filter: blur(1vmin) contrast(10);
-            mix-blend-mode: overlay;
+            /* mix-blend-mode: overlay; */
+			/* ^ for some reason, breaks color on chrome */
             opacity: 30%;
         }
     }
