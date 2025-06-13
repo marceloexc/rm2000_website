@@ -3,12 +3,36 @@
 import Layout from '../layouts/Layout.astro';
 
 import LucidaParagraph from '../components/LucidaParagraph.astro';
+import GaramondInsetShadow from '../components/GaramondInsetShadow.astro';
 
 ---
 
 <Layout>
 	<LucidaParagraph>
 		RM2000 Tape Recorder does not use third party frameworks to collect crash data or analytics. Generic usage data is collected using Apple’s built-in App Analytics that you can opt out of at any time.
+	</LucidaParagraph>
+
+	<GaramondInsetShadow>
+		Information we do collect
+	</GaramondInsetShadow>
+
+	<LucidaParagraph>
+		<b><i>Screen Recording Functionality</i></b>
+
+		<br> <br>
+
+		RM2000 Tape Recorder utilizes Apple's own provided frameworks for recording the screen. This functionality is fundamental to capturing system audio while still keeping support for older versions of macOS. Only audio that you choose to record using the app is captured, including sounds played by your system, such as music, games, or browser audio.
+
+		<br> <br> 
+		All visual data from screen recordings (the "video") is discarded while processing the audio file - RM2000 Tape Recorder only concerns itself regarding the audio buffers from the result of said screen recording. These recordings are only initiated by the user (through the Record button or through the Global Hotkey) and do not start recording at random. Apple's operating system provides an indicator as to when a screen recording is in progress (purple tray indicator on menu bar)
+
+		<br> <br>
+		
+		<b>Where its stored: </b> All recorded audio files are saved locally on your device. RM2000 Tape Recorder does not upload or transmit these recordings to any server or third policy, unless initiated by the user through the "Sharing" functionality from within the Sample Library window.
+
+		<br> <br>
+		
+		<b>Data retention: </b>Audio files remain on your device until you delete them. 
 	</LucidaParagraph>
 
 </Layout>
