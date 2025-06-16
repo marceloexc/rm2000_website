@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import AppleLogo from '../assets/apple.png';
 import GaramondInsetShadow from "./GaramondInsetShadow.astro";
 ---
@@ -9,7 +8,7 @@ import GaramondInsetShadow from "./GaramondInsetShadow.astro";
 	<div class="wrapper">
 
 		<img src={AppleLogo.src} alt="Apple Logo" class="apple-logo" >
-	
+
 		<GaramondInsetShadow class="text88" >
 			Download on the
 			<u><a href="https://testflight.apple.com/join/jtGpAsYy">App Store</a></u>
@@ -23,7 +22,7 @@ import GaramondInsetShadow from "./GaramondInsetShadow.astro";
  a {
 	 color: #c1c6c4;
  }
- 
+
  section {
 	 display: flex;
 	 margin: 0 auto;
@@ -31,18 +30,33 @@ import GaramondInsetShadow from "./GaramondInsetShadow.astro";
 	 min-height: 40rem;
  }
 
+ @media (max-width: 800px) {
+	 .wrapper {
+		 flex-direction: column;
+		 align-items: center;
+	 }
+
+	 :global(.text88) {
+		 text-align: center;
+		 padding: 2rem;
+	 }
+ }
+
  .wrapper {
 	 max-width: 40rem;
 	 margin: auto !important;
 	 display: flex;
  }
- 
- :global(.text88) {
-	
-	 text-align: left !important;
-	 line-height: 83%;
-	 margin: auto !important;
 
+ :global(.text88) {
+	 line-height: 83%;
+ }
+
+ @media (min-width: 800px) {
+	 :global(.text88) {
+		 text-align: left !important;
+		 margin: auto !important;
+	 }
  }
 
  .apple-logo {

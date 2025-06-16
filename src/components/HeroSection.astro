@@ -20,7 +20,7 @@ import SplashImage from "./SplashImage.astro";
 
 <style>
 	section {
-		width: 100%;
+		max-width: 100%;
 		min-height: 400px;
 		height: 105%;
 		position: relative;
@@ -29,6 +29,7 @@ import SplashImage from "./SplashImage.astro";
 		align-items: center;
 		justify-content: center;
 		overflow: hidden; /* Ensure the pseudo-element does not overflow */
+		
 	}
 
 	section::before {
@@ -40,11 +41,16 @@ import SplashImage from "./SplashImage.astro";
 		z-index: 0; /* Send it behind the content */
 	}
 
+ @media (max-width: 900px) {
+	 section::before {
+		 background: radial-gradient(ellipse 80% 60% at 50% 80%, #c1c6c4 4%, #959d9f, #6c757a, #454e56, #212732, #00010f 100%) !important;
+	 }
+ }
+
  .text-section {
 
 	 padding-top: 0;
 	 text-align: center;
-
 	 position: relative;
 	 * {
 		 font-family: "Lucida Grande",sans-serif;
@@ -61,5 +67,17 @@ import SplashImage from "./SplashImage.astro";
 		 font-size: 70%;
 		 //letter-spacing: -1px;
 	 }
+ }
+
+ @media (max-width: 500px) {
+	 .text-section {
+		 h1 {
+			 font-size: 180%;
+		 }
+		 span {
+			 font-size: 70%;
+		 }
+	 }
+
  }
 </style>
