@@ -1,14 +1,23 @@
 ---
 import SplashImage from "./SplashImage.astro";
-
+import MacIcon from '../assets/Mac_15mm-to-25mm_grayscale.png';
+import UniversalIcon from '../assets/Mac_Universal_logo.png'
 ---
 
 <section>
-   	<SplashImage />
+
+	<div class="alignment">
+		<div class="stickers">
+			<img src={UniversalIcon.src}>
+
+			<img src={MacIcon.src}>
+		</div>
+   		<SplashImage />
+	</div>
 	<div class="text-section">
 		<h1>
 			RM2000<span>
-				Tape Recorder
+			Tape Recorder
 			</span>
 
 			<br>
@@ -19,27 +28,27 @@ import SplashImage from "./SplashImage.astro";
 </section>
 
 <style>
-	section {
-		max-width: 100%;
-		min-height: 400px;
-		height: 105%;
-		position: relative;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		overflow: hidden; /* Ensure the pseudo-element does not overflow */
-		
-	}
+ section {
+	 max-width: 100%;
+	 min-height: 400px;
+	 height: 105%;
+	 position: relative;
+	 display: flex;
+	 flex-direction: column;
+	 align-items: center;
+	 justify-content: center;
+	 overflow: hidden; /* Ensure the pseudo-element does not overflow */
 
-	section::before {
-		content: "";
-		position: absolute;
-		inset: 0; /* Cover the entire section */
-		background: radial-gradient(ellipse 80% 60% at 50% 80%, #c1c6c4 4%, #959d9f, #6c757a, #454e56, #212732, #00010f 65%);
-		filter: blur(4px);
-		z-index: 0; /* Send it behind the content */
-	}
+ }
+
+ section::before {
+	 content: "";
+	 position: absolute;
+	 inset: 0; /* Cover the entire section */
+	 background: radial-gradient(ellipse 80% 60% at 50% 80%, #c1c6c4 4%, #959d9f, #6c757a, #454e56, #212732, #00010f 65%);
+	 filter: blur(4px);
+	 z-index: 0; /* Send it behind the content */
+ }
 
  @media (max-width: 900px) {
 	 section::before {
@@ -65,7 +74,37 @@ import SplashImage from "./SplashImage.astro";
 	 }
 	 span {
 		 font-size: 70%;
-		 //letter-spacing: -1px;
+	 }
+ }
+
+ .alignment {
+	 display: flex;
+	 flex-direction: row;
+	 position: relative;
+	 z-index: 99;
+ }
+
+ .alignment::after {
+	 content: "";
+	 flex: 1;
+	 position: relative;
+ }
+
+ .stickers {
+	 flex: 1;
+	 position: relative;
+	 display: flex;
+	 align-items: flex-start;
+	 gap: 1rem;
+	 margin-left: auto;
+	 margin-top: auto;
+	 padding-bottom: 5rem;
+	 right: 6rem;
+	 
+	 img {
+		 width: 2.5rem;
+		 height: auto;
+		 max-width: 100%;
 	 }
  }
 
@@ -75,7 +114,7 @@ import SplashImage from "./SplashImage.astro";
 			 font-size: 180%;
 		 }
 		 span {
-			 font-size: 70%;
+			 font-size: 50%;
 		 }
 	 }
 
