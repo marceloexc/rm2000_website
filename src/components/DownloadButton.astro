@@ -7,14 +7,12 @@ import GaramondInsetShadow from "./GaramondInsetShadow.astro";
 <section>
 
 	<div class="wrapper">
-		<Image src={AppleLogo} alt="Apple Logo" class="apple-logo" width={300} />
+
+		<img src={AppleLogo.src} alt="Apple Logo" class="apple-logo" >
 	
 		<GaramondInsetShadow class="text88" >
 			Download on the
-
-			<br>
-		
-			<u><a href="https://testflight.apple.com/join/jtGpAsYy">App Store</a></u> →
+			<u><a href="https://testflight.apple.com/join/jtGpAsYy">App Store</a></u>
 		</GaramondInsetShadow>
 	</div>
 
@@ -34,7 +32,7 @@ import GaramondInsetShadow from "./GaramondInsetShadow.astro";
  }
 
  .wrapper {
-	 max-width: 50rem;
+	 max-width: 40rem;
 	 margin: auto !important;
 	 display: flex;
  }
@@ -46,4 +44,10 @@ import GaramondInsetShadow from "./GaramondInsetShadow.astro";
 	 margin: auto !important;
 
  }
+
+ .apple-logo {
+	 max-width: 100%;
+	 width: 200px;
+ }
+
 </style>

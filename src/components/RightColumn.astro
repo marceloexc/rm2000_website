@@ -13,7 +13,7 @@ const { class: className = "" } = Astro.props;
 	 gap: 5rem;
 	 flex-direction: column;
 	 max-width: 35em;
-	 min-height: 70rem;
+	 min-height: min(100vw, 70rem);
 	 background: rgb(0, 1, 15);
 	 background: linear-gradient(180deg, rgba(227, 233, 231, 0.24) 1%, rgb(0, 2, 14) 50%, rgb(0, 2, 14) 73%, rgba(227, 233, 231, 0.2) 100%);
 	 border: 0.7rem solid;
@@ -26,6 +26,12 @@ const { class: className = "" } = Astro.props;
 		 rgba(151, 151, 151, 0),
 		 #979797
 	 );
+ }
+
+ @media (max-width: 900px) {
+	 .right-column-style {
+		 min-height: 60rem;
+	 }
  }
 	 
 </style>
