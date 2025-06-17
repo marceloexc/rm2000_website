@@ -1,49 +1,83 @@
 ---
-import { Image } from "astro:assets";
 import AppleLogo from '../assets/apple.png';
 import GaramondInsetShadow from "./GaramondInsetShadow.astro";
+import LucidaParagraph from './LucidaParagraph.astro';
 ---
 
 <section>
 
 	<div class="wrapper">
-		<Image src={AppleLogo} alt="Apple Logo" class="apple-logo" width={300} />
-	
-		<GaramondInsetShadow class="text88" >
-			Download on
 
-			<br>
-		
-			<u><a href="https://testflight.apple.com/join/jtGpAsYy">TestFlight</a></u> →
+		<img src={AppleLogo.src} alt="Apple Logo" class="apple-logo" >
+
+		<GaramondInsetShadow class="text88" >
+			Download on the
+			<u><a href="https://apps.apple.com/us/app/rm2000-tape-recorder/id6742876939">App Store</a></u>
 		</GaramondInsetShadow>
 	</div>
+
+	<LucidaParagraph>
+		No subscriptions - only a Lifetime License, alongside a free trial.
+
+		<br> <br>
+
+		Launch sale: Get a Lifetime License for $6.99. Never expires! Offer ends June 30th.
+	</LucidaParagraph>
 
 </section>
 
 <style>
 
  a {
-	 color: inherit;
+	 color: #c1c6c4;
  }
- 
+
  section {
 	 display: flex;
 	 margin: 0 auto;
 	 width: 100%;
-	 min-height: 40rem;
+	 min-height: 20rem;
+	 flex-direction: column;
+	 align-items: center;
+	 p {
+		 padding-bottom: 15rem;
+		 text-align: center;
+	 }
+ }
+
+ @media (max-width: 800px) {
+	 .wrapper {
+		 flex-direction: column;
+		 align-items: center;
+	 }
+
+	 :global(.text88) {
+		 text-align: center;
+		 padding: 2rem;
+	 }
  }
 
  .wrapper {
-	 max-width: 50rem;
+	 max-width: 40rem;
 	 margin: auto !important;
+	 padding-top: 15rem;
 	 display: flex;
  }
- 
- :global(.text88) {
-	
-	 text-align: left !important;
-	 line-height: 83%;
-	 margin: auto !important;
 
+ :global(.text88) {
+	 line-height: 83%;
  }
+
+ @media (min-width: 800px) {
+	 :global(.text88) {
+		 text-align: left !important;
+		 margin: auto !important;
+	 }
+ }
+
+ .apple-logo {
+	 max-width: 100%;
+	 width: 200px;
+ }
+
 </style>

@@ -1,0 +1,121 @@
+---
+import { Image } from "astro:assets";
+import iMacProScreenImg from '../assets/iMacPro.png'
+import GaramondInsetShadow from "./GaramondInsetShadow.astro";
+import DemoVideo from '../assets/demo2.webm';
+import LucidaParagraph from "./LucidaParagraph.astro";
+---
+
+<section>
+
+	<div class="text-wrapper">
+		<GaramondInsetShadow style="margin-top: 5rem !important;">
+			Adapts with your workflow
+		</GaramondInsetShadow>
+
+		<LucidaParagraph>
+			File-over-app philosophy - use your samples everywhere
+		</LucidaParagraph>
+	</div>
+
+	<div class="macbook-wrapper">
+		
+		<img src={iMacProScreenImg.src} class="macbook-pro-image" >
+
+		<video
+			class="macbook-video"
+			width="1000"
+			height="300"
+			autoplay
+			muted
+			playsinline
+			loop
+			preload="auto"
+		>
+
+			<source src={DemoVideo} type="video/webm">
+		</video>
+		
+	</div>
+	
+	<div id="iMacStand" class="macbook_pro_stand">
+	</div>
+  
+</section>
+
+<style>
+ section {
+     background: radial-gradient(ellipse 70% 60%, #516068 4%, #00010f 65%);
+     width: 100%;
+     display: flex;
+     flex-direction: column;
+     min-height: 50rem;
+ }
+
+ .macbook-wrapper {
+	 position: relative;
+ }
+
+ .macbook-video {
+	 position: absolute;
+	 top: 6%;   
+	 left: 10.4%;   
+	 width: 75%; 
+	 height: 60%; 
+	 z-index: 2;
+	 border-radius: 0.5rem;
+	 box-shadow: 0px 0px 145px 0px rgba(204,204,204,0.02);
+ }
+
+ 
+ .macbook-pro-image {
+     display: flex;
+     margin: auto;
+     margin-bottom: -1rem;
+     z-index: 2;
+
+	 max-width: 100%;
+	 width: 1000px;
+ }
+
+ .macbook_pro_stand {
+     opacity: 10%;
+     transition: opacity 1s ease-in-out;
+     padding: 4px;
+     height: 10rem;
+     background: radial-gradient(ellipse 70% 200% at 50% -10%, #516068 4%, #00010f 65%);
+ }
+
+ .macbook_pro_stand.visible {
+     opacity: 100%;
+ }
+
+ .text-wrapper {
+	 display: flex;
+	 flex-direction: column;
+	 align-items: center;
+	 p {
+		 margin-bottom: 3rem !important;
+		 text-align: center;
+	 }
+ }
+</style>
+
+<script>
+ document.addEventListener("DOMContentLoaded", () => {
+     const stand = document.getElementById("iMacStand");
+     const observer = new IntersectionObserver(
+		 ([entry]) => {
+			 if (entry.isIntersecting) {
+				 stand.classList.add("visible");
+			 } else {
+				 stand.classList.remove("visible");
+			 }
+		 },
+		 {
+			 threshold: 0.1,
+		 }
+     );
+     observer.observe(stand);
+ });
+</script>

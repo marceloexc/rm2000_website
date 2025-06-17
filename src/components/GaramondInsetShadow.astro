@@ -6,12 +6,18 @@ const { class: className, style: styleAttr } = Astro.props;
 </h2>
 
 <style>
-    h2 {
-        color:  #898A8B;
-        font-family: "ITCGaramond";
-        font-size: 70px;
-        margin: 0;
-        text-align: center;
-		font-weight: 1;
-    }
+ h2 {
+     color:  #898A8B;
+     font-family: "ITCGaramond";
+     font-size: 70px;
+     margin: 0;
+     text-align: center;
+	 font-weight: 1;
+ }
+
+ @media (max-width: 900px) {
+	 h2 {
+		 font-size: 52px;
+	 }
+ }
 </style>

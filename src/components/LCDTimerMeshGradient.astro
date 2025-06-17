@@ -13,125 +13,147 @@
 
 
 <style>
-    .orb-wrapper {
-        position: relative;
-        width: 50rem;
-        aspect-ratio: 2;
-        /* margin: auto; */
-    }
+ .orb-wrapper {
+     position: relative;
+     width: min(90vw, 50rem);
+	 max-width: 100%;
+     aspect-ratio: 1.2;
+     /* margin: auto; */
+ }
 
-    h1 {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: #979797;
-        font-family: "Tachyo", monospace;
-        font-size: 900%;
-        font-weight: 10;
-        margin: 0;
-        z-index: 1;
-        mix-blend-mode: hard-light;
-        text-shadow: rgb(61, 72, 72) 0px 0px 36px;
+ h1 {
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     color: #979797;
+     font-family: "Tachyo", monospace;
+     font-size: 900%;
+     font-weight: 10;
+     margin: 0;
+     z-index: 1;
+     mix-blend-mode: color-dodge;
+     text-shadow: rgba(255, 181, 127, 0.2) 1px 1px 70px;
+ }
 
-    }
+ @property --angle {
+     syntax: "<angle>";
+     inherits: false;
+     initial-value: 0deg;
+ }
 
-    @property --angle {
-        syntax: "<angle>";
-        inherits: false;
-        initial-value: 0deg;
-    }
+ :root {
+     --bg: oklch(0.093 0.039 260.553);
+     --c1: oklch(0.692 0.076 63.317);
+     --c2: oklch(0.642 0.117 52.639);
+     --c3: oklch(0.493 0.083 56.347);
+ }
 
-    :root {
-        --bg: oklch(0.093 0.039 260.553);
-        --c1: oklch(0.692 0.076 63.317);
-        --c2: oklch(0.642 0.117 52.639);
-        --c3: oklch(0.493 0.083 56.347);
-    }
+ .orb {
+     display: grid;
+     position: relative;
+     grid-template-areas: "stack";
+     inline-size: 100%;
+     aspect-ratio: 1.2;
+     //overflow: hidden;
+     border-radius: 50%;
+     opacity: 90%;
 
-    .orb {
-        display: grid;
-        position: relative;
-        grid-template-areas: "stack";
-        inline-size: 100%;
-        aspect-ratio: 1.3;
-        //overflow: hidden;
-        border-radius: 50%;
-        opacity: 80%;
+     &::before,
+     &::after {
+         content: "";
+         display: block;
+         grid-area: stack;
+         width: 100%;
+         height: 100%;
+         border-radius: 50%;
+         transform: translateZ(0);
+     }
 
-        &::before,
-        &::after {
-            content: "";
-            display: block;
-            grid-area: stack;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            transform: translateZ(0);
-        }
+     &::before {
+         background: conic-gradient(
+             from calc(var(--angle) * 2) at 25% 70%,
+             var(--c3),
+             transparent 20% 80%,
+             var(--c3)
+         ),
+         conic-gradient(
+             from calc(var(--angle) * 2) at 45% 75%,
+             var(--c2),
+             transparent 30% 60%,
+             var(--c2)
+         ),
+         conic-gradient(
+             from calc(var(--angle) * -3) at 80% 20%,
+             var(--c1),
+             transparent 40% 60%,
+             var(--c1)
+         ),
+         conic-gradient(
+             from calc(var(--angle) * 2) at 15% 5%,
+             var(--c2),
+             transparent 10% 90%,
+             var(--c2)
+         ),
+         conic-gradient(
+             from calc(var(--angle) * 1) at 20% 80%,
+             var(--c1),
+             transparent 10% 90%,
+             var(--c1)
+         ),
+         conic-gradient(
+             from calc(var(--angle) * -2) at 85% 10%,
+             var(--c3),
+             transparent 20% 80%,
+             var(--c3)
+         );
+         box-shadow: inset var(--bg) 0 0 15rem 5rem; 
+         filter: blur(3vmin) contrast(1);
+         animation: rotate 20s linear infinite;
+     }
 
-        &::before {
-            background: conic-gradient(
-                    from calc(var(--angle) * 2) at 25% 70%,
-                    var(--c3),
-                    transparent 20% 80%,
-                    var(--c3)
-            ),
-            conic-gradient(
-                    from calc(var(--angle) * 2) at 45% 75%,
-                    var(--c2),
-                    transparent 30% 60%,
-                    var(--c2)
-            ),
-            conic-gradient(
-                    from calc(var(--angle) * -3) at 80% 20%,
-                    var(--c1),
-                    transparent 40% 60%,
-                    var(--c1)
-            ),
-            conic-gradient(
-                    from calc(var(--angle) * 2) at 15% 5%,
-                    var(--c2),
-                    transparent 10% 90%,
-                    var(--c2)
-            ),
-            conic-gradient(
-                    from calc(var(--angle) * 1) at 20% 80%,
-                    var(--c1),
-                    transparent 10% 90%,
-                    var(--c1)
-            ),
-            conic-gradient(
-                    from calc(var(--angle) * -2) at 85% 10%,
-                    var(--c3),
-                    transparent 20% 80%,
-                    var(--c3)
-            );
-            box-shadow: inset var(--bg) 0 0 15rem 5rem; /* Example values using em */
-            filter: blur(3vmin) contrast(1);
-            /* animation: rotate 20s linear infinite; */
-        }
+     &::after {
+         --dot: 1.5px;
+         background-image: radial-gradient(
+             circle at center,
+             var(--bg) var(--dot),
+             transparent var(--dot)
+         );
+         background-size: calc(var(--dot) * 2) calc(var(--dot) * 2);
+         mask-image: radial-gradient(black 25%, transparent 75%);
+         backdrop-filter: blur(1vmin) contrast(10);
+         /* mix-blend-mode: overlay; */
+		 /* ^ for some reason, breaks color on chrome */
+         opacity: 30%;
+     }
+ }
 
-        &::after {
-            --dot: 1.5px;
-            background-image: radial-gradient(
-                    circle at center,
-                    var(--bg) var(--dot),
-                    transparent var(--dot)
-            );
-            background-size: calc(var(--dot) * 2) calc(var(--dot) * 2);
-            mask-image: radial-gradient(black 25%, transparent 75%);
-            backdrop-filter: blur(1vmin) contrast(10);
-            mix-blend-mode: overlay;
-            opacity: 30%;
-        }
-    }
+ @keyframes rotate {
+     to {
+         --angle: 360deg;
+     }
+ }
 
-    @keyframes rotate {
-        to {
-            --angle: 360deg;
-        }
-    }
+ @media (max-width: 900px) {
+	 .orb {
+		 &::before {
+			 box-shadow: inset var(--bg) 0 0 5rem 3rem !important;
+		 }	 
+	 }
+ }
+
+ @media (max-width: 600px) {
+	 h1 {
+		 font-size: 600%;
+		 /* padding-inline: 2rem; */
+	 }
+ }
+
+ @media(max-width: 430px) {
+	 h1 {
+		 font-size: 500%;
+	 }
+ }
 </style>
 
 <script>

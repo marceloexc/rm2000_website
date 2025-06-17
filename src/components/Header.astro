@@ -14,11 +14,13 @@ import background from '../assets/rm2000_logo.webp';
      justify-content: center;
  }
  .logo {
-     width: 210px;
+	 position: absolute;
+     width: min(40vw, 210px);
      height: auto;
      object-fit: contain;
      margin: 0;
-     padding: 2em;
-     //z-index: 1;
+     padding-block: 3em;
+	 /* padding-block: 0; */
+     z-index: 1;
  }
 </style>
