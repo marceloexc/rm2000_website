@@ -8,12 +8,14 @@ import gradient_img from "../assets/i_got_this_gradient_from_david_rudnicks_webs
 import DownloadButton from '../components/DownloadButton.astro';
 import MacBookScreen from '../components/MacBookScreen.astro';
 import IMacProScreen from '../components/iMacProScreen.astro';
+import Header from '../components/Header.astro';
 ---
 
 <Layout>
 	<div class="gradient">
 		<Image class="gradient_img" src={gradient_img} alt="gradient"/>
 	</div>
+	<Header />
 
 	<Welcome />
 	<MacBookScreen />
@@ -25,11 +27,11 @@ import IMacProScreen from '../components/iMacProScreen.astro';
 
 <style>
 	.gradient {
-		z-index: 99;
+		z-index: 2;
 		position: fixed;
 		width: 100%;
-		//left: 50%;
-		//margin-left: -50%;
+		left: 50%;
+		margin-left: -50%;
 		//margin-top: 80px;
 	}
 	.gradient_img {
@@ -37,7 +39,7 @@ import IMacProScreen from '../components/iMacProScreen.astro';
 		margin-top: -17px;
 		rotate: 180deg;
 		opacity: 100%;
-		//filter: chroma(9);
+		filter: chroma(9);
 
 	}
 </style>
