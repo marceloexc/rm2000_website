@@ -1,6 +1,7 @@
 ---
 import AppleLogo from '../assets/apple.png';
 import GaramondInsetShadow from "./GaramondInsetShadow.astro";
+import LucidaParagraph from './LucidaParagraph.astro';
 ---
 
 <section>
@@ -11,9 +12,17 @@ import GaramondInsetShadow from "./GaramondInsetShadow.astro";
 
 		<GaramondInsetShadow class="text88" >
 			Download on the
-			<u><a href="https://testflight.apple.com/join/jtGpAsYy">App Store</a></u>
+			<u><a href="https://apps.apple.com/us/app/rm2000-tape-recorder/id6742876939">App Store</a></u>
 		</GaramondInsetShadow>
 	</div>
+
+	<LucidaParagraph>
+		No subscriptions - only a Lifetime License, alongside a free trial.
+
+		<br> <br>
+
+		Launch sale: Get a Lifetime License for $6.99. Never expires! Offer ends June 30th.
+	</LucidaParagraph>
 
 </section>
 
@@ -27,7 +36,13 @@ import GaramondInsetShadow from "./GaramondInsetShadow.astro";
 	 display: flex;
 	 margin: 0 auto;
 	 width: 100%;
-	 min-height: 40rem;
+	 min-height: 20rem;
+	 flex-direction: column;
+	 align-items: center;
+	 p {
+		 padding-bottom: 15rem;
+		 text-align: center;
+	 }
  }
 
  @media (max-width: 800px) {
@@ -45,6 +60,7 @@ import GaramondInsetShadow from "./GaramondInsetShadow.astro";
  .wrapper {
 	 max-width: 40rem;
 	 margin: auto !important;
+	 padding-top: 15rem;
 	 display: flex;
  }
 
