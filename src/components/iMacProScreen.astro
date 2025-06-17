@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 import iMacProScreenImg from '../assets/iMacPro.png'
 import GaramondInsetShadow from "./GaramondInsetShadow.astro";
-import DemoVideo from '../assets/demo.webm';
+import DemoVideo from '../assets/demo2.webm';
 import LucidaParagraph from "./LucidaParagraph.astro";
 ---
 
@@ -10,11 +10,11 @@ import LucidaParagraph from "./LucidaParagraph.astro";
 
 	<div class="text-wrapper">
 		<GaramondInsetShadow style="margin-top: 5rem !important;">
-			Turn your Mac into a Sampler
+			Adapts with your workflow
 		</GaramondInsetShadow>
 
 		<LucidaParagraph>
-			The fastest way to record inspiration from anywhere
+			File-over-app philosophy - use your samples everywhere
 		</LucidaParagraph>
 	</div>
 
@@ -38,7 +38,7 @@ import LucidaParagraph from "./LucidaParagraph.astro";
 		
 	</div>
 	
-	<div id="macbookStand" class="macbook_pro_stand">
+	<div id="iMacStand" class="macbook_pro_stand">
 	</div>
   
 </section>
@@ -59,9 +59,9 @@ import LucidaParagraph from "./LucidaParagraph.astro";
  .macbook-video {
 	 position: absolute;
 	 top: 6%;   
-	 left: 12.4%;   
+	 left: 10.4%;   
 	 width: 75%; 
-	 height: 82%; 
+	 height: 60%; 
 	 z-index: 2;
 	 border-radius: 0.5rem;
 	 box-shadow: 0px 0px 145px 0px rgba(204,204,204,0.02);
@@ -80,7 +80,7 @@ import LucidaParagraph from "./LucidaParagraph.astro";
 
  .macbook_pro_stand {
      opacity: 10%;
-     transition: opacity 2s ease-in-out;
+     transition: opacity 1s ease-in-out;
      padding: 4px;
      height: 10rem;
      background: radial-gradient(ellipse 70% 200% at 50% -10%, #516068 4%, #00010f 65%);
@@ -103,7 +103,7 @@ import LucidaParagraph from "./LucidaParagraph.astro";
 
 <script>
  document.addEventListener("DOMContentLoaded", () => {
-     const stand = document.getElementById("macbookStand");
+     const stand = document.getElementById("iMacStand");
      const observer = new IntersectionObserver(
 		 ([entry]) => {
 			 if (entry.isIntersecting) {
