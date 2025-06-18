@@ -1,7 +1,8 @@
 ---
 import SplashImage from "./SplashImage.astro";
 import MacIcon from '../assets/Mac_15mm-to-25mm_grayscale.png';
-import UniversalIcon from '../assets/Mac_Universal_logo.png'
+import UniversalIcon from '../assets/Mac_Universal_logo.png';
+import MacAppStoreSticker from '../assets/mac_app_store_sticker.svg';
 ---
 
 <section>
@@ -13,6 +14,9 @@ import UniversalIcon from '../assets/Mac_Universal_logo.png'
 			<img src={MacIcon.src}>
 		</div>
    		<SplashImage />
+		<div class="app-store-button">
+			<img src={MacAppStoreSticker.src}>
+		</div>
 	</div>
 	<div class="text-section">
 		<h1>
@@ -84,9 +88,9 @@ import UniversalIcon from '../assets/Mac_Universal_logo.png'
 	 z-index: 99;
  }
 
- .alignment::after {
-	 content: "";
+ .app-store-button {
 	 flex: 1;
+	 display: flex;
 	 position: relative;
  }
 
