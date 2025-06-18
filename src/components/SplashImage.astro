@@ -5,12 +5,12 @@ import { Image } from "astro:assets";
 <Image class="small-image" src={screenshot} alt="RM2000 screenshot"/>
 
 <style>
-    .small-image {
-        /* max-width: 100%; */
-        width: min(50vw, 330px);
-        height: auto;
-        filter: drop-shadow(2px 29px 21px #40494f);
-		/* margin-inline: 50rem; */
-    }
+ .small-image {
+     width: min(50vw, 330px);
+     height: min(60vh,90rem);
+     filter: drop-shadow(2px 29px 21px #40494f);
+	 object-fit: contain; /* no strecthing */
+	 display: block;
+ }
 
 </style>
