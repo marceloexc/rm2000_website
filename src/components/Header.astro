@@ -16,11 +16,18 @@ import background from '../assets/rm2000_logo.webp';
  .logo {
 	 position: absolute;
      width: min(40vw, 210px);
-     height: auto;
+     height: min(5vh, 130px);;
      object-fit: contain;
      margin: 0;
      padding-block: 3em;
 	 /* padding-block: 0; */
      z-index: 1;
  }
+
+ @media (max-height: 690px) {
+	 .logo {
+		 padding-block: 1em !important;
+	 }
+ }
+
 </style>
