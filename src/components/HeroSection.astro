@@ -56,12 +56,6 @@ import MacAppStoreSticker from '../assets/mac_app_store_sticker.svg';
 	 z-index: 0; /* Send it behind the content */
  }
 
- @media (max-width: 900px) {
-	 section::before {
-		 background: radial-gradient(ellipse 80% 60% at 50% 80%, #c1c6c4 4%, #959d9f, #6c757a, #454e56, #212732, #00010f 100%) !important;
-	 }
- }
-
  .text-section {
 
 	 padding-top: 0;
@@ -94,11 +88,17 @@ import MacAppStoreSticker from '../assets/mac_app_store_sticker.svg';
 	 flex: 1;
 	 display: flex;
 	 position: relative;
-	 width: 8rem;
 	 margin-right: auto;
 	 margin-top: auto;
 	 padding-bottom: 5rem;
 	 left: 3.5rem;
+
+	 a {
+		 img {
+			 width: 10rem;
+
+		 }
+	 }
  }
 
  .stickers {
@@ -110,7 +110,8 @@ import MacAppStoreSticker from '../assets/mac_app_store_sticker.svg';
 	 margin-left: auto;
 	 margin-top: auto;
 	 padding-bottom: 5rem;
-	 right: 2rem;
+	 right: 1.2rem;
+	 width: 10rem;
 	 
 	 img {
 		 width: 2.5rem;
@@ -119,7 +120,21 @@ import MacAppStoreSticker from '../assets/mac_app_store_sticker.svg';
 	 }
  }
 
- @media (max-width: 500px) {
+ @media (max-width: 900px) {
+	 section::before {
+		 background: radial-gradient(ellipse 80% 60% at 50% 80%, #c1c6c4 4%, #959d9f, #6c757a, #454e56, #212732, #00010f 100%) !important;
+	 }
+
+	 .stickers {
+		 right: 0.5rem;
+	 }
+
+	 .app-store-button {
+		 left: 2.2rem;
+	 }
+ }
+ 
+ @media (max-width: 650px) {
 	 .text-section {
 		 h1 {
 			 font-size: 180%;
@@ -127,6 +142,10 @@ import MacAppStoreSticker from '../assets/mac_app_store_sticker.svg';
 	 }
 
 	 .stickers {
+		 display: none;
+	 }
+
+	 .app-store-button {
 		 display: none;
 	 }
 
